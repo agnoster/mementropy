@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Password Generator</title>
+        <style type="text/css">
+            #password { font-size: 120%; width: 600px }
+        </style>
+    </head>
+    <body>
+        <div>
+            <p>
+            Words: <input id="wordcount" type="integer" value="4">
+            </p>
+            <p>
+            <input id="password">
+            </p>
+        </div>
+        <script type="text/javascript">
+            var corpus;
+            var pwFocus;
+
+            function wordsAre(words) {
+                corpus = words
+
+                setInterval(newPassword, 10)
+
+                var field = document.getElementById('password')
+                field.onfocus = function(){ pwFocus = true }
+                field.onblur  = function(){ pwFocus = false }
+            }
+
+            function newPassword() {
+                var field = document.getElementById('password')
+                var wordCount = parseInt(document.getElementById('wordcount').value)
+                field.value = genPassword(wordCount)
+                if (pwFocus)
+                    field.select()
+            }
+
+            function randomWord() {
+                var index = Math.floor(Math.random() * corpus.length)
+                return corpus[index]
+            }
+
+            function genPassword(n) {
+                var passwords = []
+                for (var i = 0; i < n; i++) {
+                    passwords.push(randomWord())
+                }
+                return passwords.join(' ')
+            }
+        </script>
+        <script type="text/javascript" src="corpus.js"></script>
+    </body>
+</html>
