@@ -18,23 +18,25 @@
             <p>
             <p>Just click here and hit "Copy to clipboard":</p>
             <input id="password">
+            <button id="toggle">Start</button>
             </p>
             </div>
             <h2>Why?<h2>
             <img src="http://imgs.xkcd.com/comics/password_strength.png" />
         </div>
         <script type="text/javascript">
-            var corpus;
-            var pwFocus;
+            var corpus, pwFocus, timer, button
 
             function wordsAre(words) {
                 corpus = words
 
-                setInterval(newPassword, 10)
-
                 var field = document.getElementById('password')
                 field.onfocus = function(){ pwFocus = true }
                 field.onblur  = function(){ pwFocus = false }
+
+                button = document.getElementById('toggle')
+                button.addEventListener('click', toggle)
+                newPassword()
             }
 
             function newPassword() {
@@ -56,6 +58,23 @@
                     passwords.push(randomWord())
                 }
                 return passwords.join(' ')
+            }
+
+            function toggle() {
+
+                if (timer) stop()
+                else start()
+            }
+
+            function start() {
+                timer = setInterval(newPassword, 10)
+                button.textContent = "Stop"
+            }
+
+            function stop() {
+                clearInterval(timer)
+                timer = null
+                button.textContent = "Start"
             }
         </script>
         <script type="text/javascript" src="corpus.js"></script>
