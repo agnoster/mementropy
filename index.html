@@ -8,12 +8,20 @@
     </head>
     <body>
         <div>
+            <h1>MemEntropy</h1>
+            <h3>A memorable entropy generator for creating <a href="http://xkcd.com/936/">XKCD-936</a>-compliant passwords in the browser</h3>
+            <div>For more information, see <a href="https://github.com/agnoster/mementropy">mementropy on github</a>.</div>
+            <div style="margin:20px; width: 800px; border: 1px solid grey; padding: 20px">
             <p>
             Words: <input id="wordcount" type="integer" value="4">
             </p>
             <p>
+            <p>Just click here and hit "Copy to clipboard":</p>
             <input id="password">
             </p>
+            </div>
+            <h2>Why?<h2>
+            <img src="http://imgs.xkcd.com/comics/password_strength.png" />
         </div>
         <script type="text/javascript">
             var corpus;
