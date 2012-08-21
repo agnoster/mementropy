@@ -1,10 +1,10 @@
-# MemEntropy - a client-side XKCD 936 password generation
+# MemEntropy
 
-> For a password, you want memorable entropy
+A **mem**orable **entropy** generator for creating <a href="http://xkcd.com/936/">XKCD936</a>-compliant passwords in the browser
 
-Now, in JavaScript! All the code runs client-side, so your password never gets sent over the wire in plaintext.
+All the code runs client-side, so your password never gets sent over the wire in plaintext.  Good for you, good for the servers.
 
-Good for you, good for the servers.
+Use the version of [mementropy hosted on Github Pages](http://agnoster.net/mementropy/), or download the source and run it locally! Will work if hosted directly from the filesystem.
 
 ## Corpus
 
